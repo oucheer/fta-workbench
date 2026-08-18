@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/api/fx", "destination": "/api/fx.js" }
-  ]
+  "framework": null,
+  "outputDirectory": "public"
 }

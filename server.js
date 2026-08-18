@@ -4,13 +4,8 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = __dirname;
+const ROOT = path.join(__dirname, 'public');
 const PORT = parseInt(process.env.PORT, 10) || 8080;
-
-const BLOCKED = new Set([
-  'server.js', 'package.json', 'package-lock.json', 'README.md', 'vercel.json',
-  '.gitignore', '.vercelignore', '.git', '.vercel', 'node_modules', 'api', 'test'
-]);
 
 const FX_SOURCES = [
   { name: 'open.er-api.com', url: 'https://open.er-api.com/v6/latest/CNY' },
@@ -93,15 +88,9 @@ function createHandler(deps) {
 
     const rel = url === '/' ? '/index.html' : url;
     const fp = path.normalize(path.join(ROOT, rel));
-    if (fp !== ROOT && !fp.startsWith(ROOT + path.sep)) {
+    if (!fp.startsWith(ROOT)) {
       res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
       res.end('Forbidden');
-      return;
-    }
-    const relSegs = fp === ROOT ? [] : path.relative(ROOT, fp).split(path.sep);
-    if (relSegs.some((seg) => BLOCKED.has(seg))) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('Not Found');
       return;
     }
 

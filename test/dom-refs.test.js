@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const appJs = fs.readFileSync(path.join(__dirname, '../app.js'), 'utf8');
-const html = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
+const appJs = fs.readFileSync(path.join(__dirname, '../public/app.js'), 'utf8');
+const html = fs.readFileSync(path.join(__dirname, '../public/index.html'), 'utf8');
 
 const ids = new Set();
 const re = /\$\('#([A-Za-z0-9_-]+)'\)/g;
