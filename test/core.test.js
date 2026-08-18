@@ -1,7 +1,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert');
-const core = require('../public/core.js');
+const core = require('../core.js');
 
 test('parseNum / toNumber 基本解析', () => {
   assert.strictEqual(core.parseNum('1,234.5'), 1234.5);

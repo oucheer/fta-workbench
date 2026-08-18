@@ -6,12 +6,12 @@
   "scripts": {
     "start": "node server.js",
     "test": "node --test",
-    "check": "node --check public/core.js && node --check public/app.js && node --check server.js"
+    "check": "node --check core.js && node --check app.js && node --check server.js && node --check api/fx.js"
   },
   "engines": {
     "node": ">=18"
   },
   "keywords": ["外贸", "跨境电商", "报价单", "利润核算", "物流", "汇率", "FOB", "CIF"],
   "license": "MIT",
-  "files": ["public", "server.js", "test", "README.md"]
+  "files": ["server.js", "test", "README.md"]
 }

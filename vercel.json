@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/public/index.html" },
-    { "source": "/api/fx", "destination": "/api/fx.js" },
-    { "source": "/(.*)", "destination": "/public/$1" }
+    { "source": "/api/fx", "destination": "/api/fx.js" }
   ]
 }

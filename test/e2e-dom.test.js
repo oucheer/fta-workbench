@@ -12,9 +12,9 @@ try {
 const it = (name, fn) => test(name, { skip: !JSDOM ? 'jsdom 未安装（可选：npm i -D jsdom 后启用 DOM e2e）' : false }, fn);
 
 const ROOT = path.join(__dirname, '..');
-const html = fs.readFileSync(path.join(ROOT, 'public/index.html'), 'utf8');
-const coreJs = fs.readFileSync(path.join(ROOT, 'public/core.js'), 'utf8');
-const appJs = fs.readFileSync(path.join(ROOT, 'public/app.js'), 'utf8');
+const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const coreJs = fs.readFileSync(path.join(ROOT, 'core.js'), 'utf8');
+const appJs = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
 
 function bootDom(overrides) {
   overrides = overrides || {};
